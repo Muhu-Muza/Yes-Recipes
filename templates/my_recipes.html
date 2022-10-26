@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="recipes">
+    <h2 class="remedy">MY RECIPES</h2>
+
+    {% for recipe in recipes %}
+    <div class="particular">
+        <div id="part">
+            <img src="{{ url_for ('static', filename='images/recipe.jpg') }}" alt="" height="60px" width="80px">
+        </div>
+        <div>
+           
+            <h3>Recipe Title: {{ recipe.title }}</h3> <span><small>Posted By: {{ recipe.creater.username }}</small></span>
+            <hr><br>
+            <p><strong><em>Category:</em> {{ recipe.category }}</strong></p><br>
+
+            <p><strong><em>Ingredients:</em></strong> <br> {{ recipe.ingredients }}</p><br>
+
+            <p><strong><em>Instructions:</em></strong> <br> {{ recipe.instructions }}</p><br>
+                    
+            <a href="{{ url_for ('edit_recipe', id = recipe.id) }}"><button class="but">Edit</button></a>
+            <a href="{{ url_for ('delete_recipe', recipe_id = recipe.id) }}"><button class="but">Delete</button></a>
+        </div>
+    </div>
+    {% endfor %}
+   </div> 
+   
+{% endblock %}

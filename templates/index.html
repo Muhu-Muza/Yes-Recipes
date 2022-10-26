@@ -1,0 +1,62 @@
+
+
+        {% extends 'base.html' %}
+
+        {% block navigation %}
+            {# % if current_user.is_authenticated % #}
+                <div>
+                    <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
+                </div>
+                <div>
+                    <a href="{{ url_for('dashboard') }}"><button id="dash">Dashboard</button></a>
+                </div>
+                {# % else % $}
+                <div>
+                    <a href="{{ url_for('login') }}"><button id="login">Login</button></a>
+                </div> 
+                <div>
+                    <a href="{{ url_for('signup') }}"><button id="dash">Signup</button></a>
+                </div>
+            {# % endif % #} 
+            {% endblock %} 
+
+
+        {% block content %}
+        <div class="main">
+            <div class="welcome">
+                <div class="image">
+                    <img src="{{ url_for ('static', filename='images/food.jpg') }}" width="80%" height="80%" >
+                </div>
+
+                <div class="message">
+                    <h1>Welcome to The Hub For Finger licking Recipes</h1>
+                </div>
+            </div>
+        </div>
+        <hr style="margin: 0 2rem 0 2rem;" >
+
+       <div class="recipes">
+        <h2 class="remedy">RECIPES</h2>
+
+        {# % for new_recipe in new_recipes % #}
+    <div class="particular">
+        <div id="part">
+            <img src="{{ url_for ('static', filename='images/recipe.jpg') }}" alt="" height="60px" width="80px">
+        </div>
+        <div>
+           
+            <a href="{# {{ url_for('view_recipes') }} #}"><h3>{# { new_recipe.title } #}</h3></a>
+            
+            <hr>
+            <p>{# { new_recipe.category } #}</p><br>
+
+
+            
+            
+        </div>
+    </div>
+    {# % endfor % #}
+       </div> 
+       {% endblock %}
+
+       

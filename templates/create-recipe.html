@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+    {% block navbar %}
+    <div class="header">
+        <div class="logo">
+            <h2>YUMMY RECIPES</h2>
+        </div>
+
+        <div class="search">
+            <div class="sch">
+                <form action="">
+                    <input type="search" placeholder="      Search..." id="sch">
+                </form>
+            </div>
+            
+            {% if current_user.is_authenticated %}
+            <div>
+                <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
+            </div>
+            <div>
+                <a href="{{ url_for('dashboard') }}"><button id="dash">Dashboard</button></a>
+            </div>
+            {% else %}
+            <div>
+                <a href="{{ url_for('login') }}"><button id="logout">Login</button></a>
+            </div> 
+            {% endif %}          
+        </div>           
+        
+    </div>
+
+    <div class="nav">
+        <div class="gap">
+            <div><a href="{{ url_for('index') }}"><h3>Home</h3></a></div>
+            <div><a href="{{ url_for('categories') }}"><h3>Categories</h3></a></div>
+            <div><a href="{{ url_for('view_recipes') }}"><h3>Recipes</h3></a></div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+    
+    <div class="main">
+
+        <div class="container">
+
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                
+                <div class="recipe">
+                    <div class="title"><h1>Add Recipe</h1></div>
+
+                    <div><label for="title">Recipe Name:</label> 
+                    <!-- <input type="text" id="recipeName"> -->
+                    {{ form.title (type="text", id="recipeName") }}
+                        
+                    </div>
+                                      
+                    <div class="choose"><label for="categories">Category:</label> 
+                        <!-- <select id="categories">
+                        {% for category in kategory %}
+                            <option  value="{{ category.id }}">{{ category.title }}</option>
+                        {% endfor %}   
+                        </select>   -->
+                        {{ form.category }}
+                    </div>
+                   
+
+                   
+                   <!-- {# <div class="upload"><label for="upload">Upload Image:</label>
+                        {{ form.image (type="file") }}
+                    </div> 
+                    #} -->
+
+                    <div class="dist"><label for="ingredients">Ingredients:</label>                      
+                        <!-- <textarea name="ingredients" id="" cols="30" rows="10"></textarea> -->
+                        {{ form.ingredients( cols="30", row="10") }}
+                    </div>
+
+                    <div class="dist"><label for="instructions">Instructions:</label>                  
+                        <!-- <textarea name="instructions" id="" cols="30" rows="10"></textarea> -->
+                        {{ form.instructions( cols="30", row="10") }}
+                    </div>
+
+                    <div id="add-recipe"><button type="submit">Add Recipe</button></div>
+
+                </div>
+                
+            </form>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+
+       

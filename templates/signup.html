@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/register.css') }}">
+</head>
+<body>
+    <div class="main">
+
+        {% for message in get_flashed_messages() %}
+            
+            <div style="background-color: red;">
+                {{ message }}
+                
+            </div>
+           
+        {% endfor %}
+
+        <div class="container">
+
+
+            <form action="" method="POST">
+                {# {{ form.hidden_tag() }} #}
+                <div class="title"><h1>Sign Up</h1></div>
+                <div class="guide">
+                    <div><label for="firstname">First Name</label>
+                    <br> 
+                    <input type="text" name="firstname">
+                    {# {{ form.firstname (type="text") }} #}
+                                    </div>
+
+                    <div><label for="lastname">Last Name</label>
+                    <br> 
+                    <input type="text" name="lastname">
+                    {# {{ form.lastname(type="text") }} #}
+                    </div>
+
+                </div>
+
+                <div class="user"><label for="email">Email</label>
+                    <br>
+                    <input type="email" size="50" name="email">
+                    {# {{ form.email ( size=50, type="email") }} #}
+
+                </div>
+
+                <div class="user"><label for="username">Username</label>
+                    <br>
+                    <input type="text" size="50" name="username">
+                    {# {{ form.username ( size=50, type="text") }} #}
+                </div>
+
+                <div class="guide">
+                    <div><label for="password">Password</label>
+                    <br> 
+                    <input type="password" name="password">
+                    {# {{ form.password_hash (type="password") }} #}
+                    </div>
+
+                    <div><label for="password">Confirm Password</label>
+                    <br> 
+                    <input type="password" name="confirm">
+                    {# {{ form.password_hash2 (type="password") }} #}
+                    </div>
+
+                </div>
+
+                <div class="confirm">
+                    <small>Already have an account ? </small>
+                    <a href="{{ url_for('login') }}"> Login</a>
+                </div>
+ 
+                <div id="submit"><button type="submit">Submit</button></div>
+
+
+                
+            </form>
+
+
+        </div>
+
+    </div>
+
+   
+</body>
+</html>

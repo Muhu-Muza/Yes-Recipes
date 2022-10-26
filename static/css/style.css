@@ -1,0 +1,365 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.container{
+    min-height: calc(100vh - 70px);
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    padding: 1.5rem;
+    background-color: goldenrod;
+}
+
+.logo{
+    color: maroon;
+    margin-left: 0.5rem;
+    
+}
+
+.search{
+    margin-left: 45%;
+    display: flex;
+    flex-direction: row;
+}
+
+.search a{
+    text-decoration: none;
+    font-size: 20px;
+    color: maroon;
+}
+
+.search a :hover{
+    color: blanchedalmond;
+}
+
+.sch{
+    padding-right: 8rem;
+}
+
+#sch{
+    border: 1px solid maroon;
+    border-radius: 5px;
+    padding: 4px;
+    background: blanchedalmond url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat left;
+}
+
+.gap{
+    margin-left: 60%;
+    display: flex;
+    flex-direction: row;
+}
+
+.gap div{
+    padding: 0.5rem 5rem 0 0;
+}
+
+.gap div a{
+    text-decoration: none;
+}
+
+.gap div a :hover{
+    color: rgb(150, 76, 49);
+}
+
+.gap h3{
+    color:  rgb(40, 23, 53);
+}
+
+.nav{
+    background-color: rgb(223, 202, 155);
+    margin-bottom: 2rem;
+    padding-bottom: 5px;
+}
+
+.welcome{
+    display: flex;
+    flex-direction: row;   
+}
+
+.message{
+    padding: 10px;
+    margin-right: 8rem;
+}
+
+.message h1{
+    font-size: 50px;
+    margin-top: 3rem;
+}
+
+.image{
+    margin-left: 2rem;
+}
+
+.particular{
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 8rem;
+    margin-right: 8rem;
+    margin-bottom: 8rem;
+    border: 1px solid rgb(192, 154, 154);
+    border-radius: 40px;
+    margin-bottom: 25px;
+}
+
+.particular div a{
+    text-decoration: none;
+}
+
+#part{
+    margin-right: 3rem;   
+}
+
+#part img{
+    border-radius: 50px;
+}
+
+.remedy{
+    text-align: center;
+    color: maroon;
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+
+
+.copyright{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.recipe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ccc;
+    margin: 8% 30% 10%;
+    padding: 0 60px ;
+}
+
+#add-recipe{
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.recipe label{
+    /* display: inline-block; */
+    padding: 8px;
+    width:150px;
+    text-align: left;
+}
+
+.recipe h1{
+    margin-bottom: 20px;
+    color: rgb(88, 74, 33);
+}
+
+.recipe textarea{
+    width: 100%;
+    height: 150px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-size: 16px;
+    resize: none;
+}
+
+#recipeName{
+    padding: 5px 2px 2px 50px;
+    align-self:flex-start;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: justify;
+}
+
+.recipe select{
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px;
+}
+
+.recipe button{
+    padding: 5px 25px;
+    background-color: rgb(0, 153, 255);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.title{
+    margin-top: 1.5em;
+}
+
+.recipe button:hover{
+    background-color: rgb(0, 121, 202);
+    cursor: pointer;
+}
+
+.upload{
+    margin-right: 80px;
+}
+
+.choose{
+    /* margin-right: 240px; */
+    margin: 13px 232px 13px 0;
+}
+ 
+.hr{
+    margin-bottom: 5rem;
+    
+} 
+
+footer{
+    background-color: rgb(53, 31, 71);
+    color: blanchedalmond;
+    text-align: center;
+    height: 88px;
+}
+
+.but{
+    padding:4px 15px;
+    margin-right: 5px;
+    background-color: #79589f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.but:hover{
+    background-color: #472a6b;
+    cursor: pointer;
+}
+
+#logout{
+    padding:4px 15px;
+    margin-right: 5px;
+    background-color: #9f5858;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#logout:hover{
+    background-color: #a01414;
+    cursor: pointer;
+}
+
+#dash{
+    padding:4px 15px;
+    margin-right: 5px;
+    background-color: #589f7e;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#dash:hover{
+    background-color: #207942;
+    cursor: pointer;
+}
+
+.dist{
+    padding-bottom: 5px;
+}
+
+.kat{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.katitem{
+    flex-direction: row;
+    margin: 0 6rem;
+}
+
+.katitem1{
+    flex-direction: row;
+}
+
+#kat{
+    padding:6px 15px;
+    margin-right: 5px;
+    background-color: #587d9f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#kat:hover{
+    background-color: #1b4c7a;
+    cursor: pointer;
+}
+
+#delete{
+    padding:4px 15px;
+    margin-right: 5px;
+    background-color: #9f5858;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#delete:hover{
+    background-color: #a01414;
+    cursor: pointer;
+}
+
+#edit{
+    padding:4px 15px;
+    margin-right: 5px;
+    background-color: #587d9f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#edit:hover{
+    background-color: #1b4c7a;
+    cursor: pointer;
+}
+
+.my_cat{
+    display: flex;
+    flex-direction: row;
+}
+
+#login{
+    padding:4px 15px;
+    margin-right: 5px;
+    background-color: #587d9f;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+#login:hover{
+    background-color: #1b4c7a;
+    cursor: pointer;
+}

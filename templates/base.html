@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for ('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+
+        {% block navbar %}
+        <div class="header">
+            <div class="logo">
+                <h2>YUMMY RECIPES</h2>
+            </div>
+        
+            <div class="search">
+                <div class="sch">
+                    <form action="">
+                        <input type="search" placeholder="      Search..." id="sch">
+                    </form>
+                </div>
+            {% block navigation %}
+            {# % if current_user.is_authenticated % #}
+                <div>
+                    <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
+                </div>
+                <div>
+                    <a href="{{ url_for('dashboard') }}"><button id="dash">Dashboard</button></a>
+                </div>
+            {#    {% else %}
+                <div>
+                    <a href="{{ url_for('login') }}"><button id="logout">Login</button></a>
+                </div>  #}
+            {# % endif % #} 
+            {% endblock %}         
+            </div>
+        </div>
+        
+        <div class="nav">
+            <div class="gap">
+                <div>{# <a href="{{ url_for('create_recipe') }}"><h3>Add recipe</h3></a></div>
+                <div><a href="{{ url_for('categories') }}"><h3>Categories</h3></a></div>
+                <div><a href="{{ url_for('view_recipes') }}"> #}<h3>Recipes</h3></a></div>
+            </div>
+        </div>
+        {% endblock %}
+
+       
+
+
+        {% block content %}
+
+            {% for message in get_flashed_messages() %}
+                
+            <div style="background-color: red;">
+                {{ message }}
+                
+            </div>
+        
+            {% endfor %}
+
+        {% endblock %}
+
+
+
+
+    </div>
+
+    <footer>
+        <p class="copyright">
+            <small>              
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> 
+                All rights reserved |  Yum Recipes <br><span>Developed by Muhumuza Ivan</span>
+            </small>
+        </p>
+
+    </footer>
+    
+  
+</body>
+</html>

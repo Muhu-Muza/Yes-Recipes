@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+    {% block navbar %}
+    <div class="header">
+        <div class="logo">
+            <h2>YUMMY RECIPES</h2>
+        </div>
+
+        <div class="search">
+            <div class="sch">
+                <form action="">
+                    <input type="search" placeholder="      Search..." id="sch">
+                </form>
+            </div>
+            
+            {# % if current_user.is_authenticated % #}
+            
+            <div>
+                <a href="{{ url_for('dashboard', username = username) }}"><button id="dash">Dashboard</button></a>
+            </div>
+
+            <div>
+                <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
+            </div>
+            {# % else % #} {#
+            <div>
+                <a href="{{ url_for('login') }}"><button id="logout">Login</button></a>
+            </div> #}
+            {# % endif % #}          
+        </div>           
+        
+    </div>
+
+    <div class="nav">
+        <div class="gap">
+            <div><a href=""><h3>Home</h3></a></div>
+            <div><a href=""><h3>Categories</h3></a></div>
+            <div><a href=""><h3>Recipes</h3></a></div>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block content %}
+    
+    <div class="main">
+
+        <div class="container">
+
+
+            <form action="" method="POST" enctype="multipart/form-data">
+                {# {{ form.hidden_tag() }} #}
+                
+                <div class="recipe">
+                    <div class="title"><h1>Edit Category</h1></div>
+
+                    <div style="margin-bottom: 5px;"><label for="title">Category Name:</label> 
+                        <input type="text" id="recipeName" name="category">
+                    
+                       {# {{ form.title (type="text", id="recipeName") }}   #}                     
+                    </div>
+
+                    <div><label for="description">Description:</label>
+                        <textarea name="description" id="" cols="30" rows="10"></textarea>                   
+                        {# {{ form.description ( cols="30", row="10") }} #}
+                    </div>
+
+                  <div id="add-recipe"><button type="submit">Submit</button></div>
+
+                </div>
+                
+            </form>
+
+        </div>
+
+    </div>
+
+    {% endblock %}
+
+       
