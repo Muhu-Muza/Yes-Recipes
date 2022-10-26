@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+    <div class="header">
+        <div class="logo">
+            <h2>YUMMY RECIPES</h2>
+        </div>
+
+        <div class="search">
+            <div class="sch">
+                <form action="">
+                    <input type="search" placeholder="      Search..." id="sch">
+                </form>
+            </div>
+            
+            <div>
+                <a href="{{ url_for('dashboard', username = username) }}"><button id="dash">Dashboard</button></a>
+            </div>
+            <div>
+                <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
+            </div>
+           {#
+            <div>
+                <a href="{{ url_for('login') }}"><button id="dash">Login</button></a>
+            </div> 
+           #}         
+        </div>           
+      
+    </div>
+
+    <div class="nav">
+        <div class="gap">
+            <div><a href=""><h3>Home</h3></a></div>
+            <div><a href=""><h3>Add Recipe</h3></a></div>
+            <div><a href=""><h3>Recipes</h3></a></div>
+        </div>
+    </div>
+    {% endblock %}
+
+
+{% block content %}
+    <div class="recipes">
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+
+        <div style="flex-direction: row; margin-right: 3rem;"><h2 class="remedy">MY CATEGORIES  |</h2></div>
+        <div style="flex-direction: row;">
+            <a href="{{ url_for('create_category', username = username) }}"><button id="dash">Add Category</button></a>
+        </div>
+
+    </div>
+
+    {% for key, value in the_categories.items() %}
+    
+    <div class="particular">
+        
+        <div>
+            
+            <h3>Category: {{ key }}</h3> <span><small>Added By: </small></span>
+            <hr><br>
+
+            <p><strong><em>Description:</em></strong> <br>{{ value.description }} </p><br>
+        
+           <div class="my_cat">
+
+            <div>
+                <a href=""><button id="edit">Edit</button></a>
+            </div>
+    
+            <!-- <div>
+                <a href="#"><button id="delete">Delete</button></a>
+            </div> -->
+           </div>
+
+        </div>
+        
+    </div>
+    {% endfor %}
+   
+   </div> 
+   
+{% endblock %}
