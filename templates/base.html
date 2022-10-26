@@ -49,19 +49,19 @@
         </div>
         {% endblock %}
 
-       
+        {% for message in get_flashed_messages() %}
+                
+        <div style="background-color: red;">
+            {{ message }}
+            
+        </div>
+    
+        {% endfor %}
 
 
         {% block content %}
 
-            {% for message in get_flashed_messages() %}
-                
-            <div style="background-color: red;">
-                {{ message }}
-                
-            </div>
-        
-            {% endfor %}
+
 
         {% endblock %}
 
