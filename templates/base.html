@@ -11,6 +11,8 @@
 
     <div class="container">
 
+
+
         {% block navbar %}
         <div class="header">
             <div class="logo">
@@ -23,40 +25,38 @@
                         <input type="search" placeholder="      Search..." id="sch">
                     </form>
                 </div>
-            {% block navigation %}
-            {# % if current_user.is_authenticated % #}
-                <div>
-                    <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
-                </div>
-                <div>
-                    <a href="{{ url_for('dashboard') }}"><button id="dash">Dashboard</button></a>
-                </div>
-            {#    {% else %}
-                <div>
-                    <a href="{{ url_for('login') }}"><button id="logout">Login</button></a>
-                </div>  #}
-            {# % endif % #} 
-            {% endblock %}         
+                {% block navigation %}
+                    <div>
+                        <a href="{{ url_for('dashboard') }}"><button id="dash">Dashboard</button></a>
+                    </div>
+                    <div>
+                        <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
+                    </div>
+
+                {% endblock %}         
             </div>
         </div>
         
         <div class="nav">
             <div class="gap">
-                <div>{# <a href="{{ url_for('create_recipe') }}"><h3>Add recipe</h3></a></div>
-                <div><a href="{{ url_for('categories') }}"><h3>Categories</h3></a></div>
-                <div><a href="{{ url_for('view_recipes') }}"> #}<h3>Recipes</h3></a></div>
+                <div><a href="{{ url_for('create_recipe', username = username) }}"><h3>Add recipe</h3></a></div>
+                <div><a href="{{ url_for('recipes', username = username, the_recipes = the_recipes) }}"><h3>Recipes</h3></a></div>
+                
+                <div><a href="{{ url_for('categories', username = username, the_categories = the_categories) }}"><h3>Categories</h3></a></div>
             </div>
+
         </div>
         {% endblock %}
-
         {% for message in get_flashed_messages() %}
                 
-        <div style="background-color: red;">
+        <div style="background-color: rgb(255, 115, 0);">
             {{ message }}
             
         </div>
     
         {% endfor %}
+
+
 
 
         {% block content %}

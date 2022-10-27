@@ -13,27 +13,24 @@
                 </form>
             </div>
             
-            {% if current_user.is_authenticated %}
+            <div>
+                <a href="{{ url_for('dashboard', username = username) }}"><button id="dash">Dashboard</button></a>
+            </div>
+          
             <div>
                 <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
             </div>
-            <div>
-                <a href="{{ url_for('dashboard') }}"><button id="dash">Dashboard</button></a>
-            </div>
-            {% else %}
-            <div>
-                <a href="{{ url_for('login') }}"><button id="logout">Login</button></a>
-            </div> 
-            {% endif %}          
+
+        
         </div>           
         
     </div>
 
     <div class="nav">
         <div class="gap">
-            <div><a href="{{ url_for('index') }}"><h3>Home</h3></a></div>
-            <div><a href="{{ url_for('categories') }}"><h3>Categories</h3></a></div>
-            <div><a href="{{ url_for('view_recipes') }}"><h3>Recipes</h3></a></div>
+            <div><a href="{{ url_for('home', username = username) }}"><h3>Home</h3></a></div>
+            <div><a href="{{ url_for('categories', username = username) }}"><h3>Categories</h3></a></div>
+            <div><a href="{{ url_for('recipes', username = username) }}"><h3>Recipes</h3></a></div>
         </div>
     </div>
     {% endblock %}
@@ -44,43 +41,41 @@
 
         <div class="container">
 
-
             <form action="" method="POST" enctype="multipart/form-data">
-                {{ form.hidden_tag() }}
+                
                 
                 <div class="recipe">
                     <div class="title"><h1>Add Recipe</h1></div>
 
                     <div><label for="title">Recipe Name:</label> 
-                    <!-- <input type="text" id="recipeName"> -->
-                    {{ form.title (type="text", id="recipeName") }}
-                        
+                    <input type="text" id="recipeName" name="recipe">
+                                          
                     </div>
-                                      
-                    <div class="choose"><label for="categories">Category:</label> 
-                        <!-- <select id="categories">
-                        {% for category in kategory %}
-                            <option  value="{{ category.id }}">{{ category.title }}</option>
-                        {% endfor %}   
-                        </select>   -->
-                        {{ form.category }}
-                    </div>
-                   
 
-                   
-                   <!-- {# <div class="upload"><label for="upload">Upload Image:</label>
-                        {{ form.image (type="file") }}
-                    </div> 
-                    #} -->
+                                   
+                    <div class="choose"><label for="categories">Category:</label> 
+                        <select id="categories" name = "category">
+                            {% for category_name in the_categories %} 
+                           <option  value="{{ category_name }}">{{ category_name }}</option>
+                           {% endfor %}
+                        </select>  
+                       
+                    </div>
+                    
+                        <!-- <div class="choose"><label for="categories">Choose Category:</label> 
+                            <select id="categories">
+                                <option value="Dish">Dish</option>
+                            </select> 
+                        </div> -->
 
                     <div class="dist"><label for="ingredients">Ingredients:</label>                      
-                        <!-- <textarea name="ingredients" id="" cols="30" rows="10"></textarea> -->
-                        {{ form.ingredients( cols="30", row="10") }}
+                        <textarea name="ingredients" id="" cols="30" rows="10"></textarea>
+                        
                     </div>
 
                     <div class="dist"><label for="instructions">Instructions:</label>                  
-                        <!-- <textarea name="instructions" id="" cols="30" rows="10"></textarea> -->
-                        {{ form.instructions( cols="30", row="10") }}
+                        <textarea name="instructions" id="" cols="30" rows="10"></textarea>
+                        
                     </div>
 
                     <div id="add-recipe"><button type="submit">Add Recipe</button></div>

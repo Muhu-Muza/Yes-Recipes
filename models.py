@@ -12,7 +12,7 @@ class User():
         self.username = username
         self.password = password
         self.confirm = confirm
-        self.recipe = {}
+        self.recipes = {}
         self.categories = {}
 
     def __repr__(self):
@@ -23,12 +23,6 @@ class User():
             self.categories[category_name] = {}
             self.categories[category_name]["recipes"] = []
             self.categories[category_name]["description"] = description
-
-            # {"juice": {
-            #             recipes: [mango, tea tree juice]
-            #             description: "wewewe"
-            #             }}
-
         else:
             flash("Category Already Exists!")
 
@@ -45,32 +39,26 @@ class User():
         else:
             flash("Cannot process request! Category missing!")
 
-    def create_recipe(self, category_name, recipe_name, ingredients = """ """, instructions = """ """ ):
-        if category_name in self.categories:
-            self.categories[category_name].append(recipe_name)
-            if recipe_name not in self.recipe:
-                ingredients = ingredients.split("r\n")
-                instructions = instructions.split("\r\n")
-                self.recipe[recipe_name] = instructions
-                self.recipe[recipe_name] = ingredients
-            else:
-                flash("Food recipe already exists")
-
-    def view(self, recipe_name):
-        if recipe_name in self.recipe:
-            return self.recipe[recipe_name]
+    def create_recipe(self, recipe_name, category, ingredients, instructions):
+        if recipe_name not in self.recipes:
+            self.recipes[recipe_name] = {}
+            self.recipes[recipe_name]["category"] = category
+            self.recipes[recipe_name]["ingredients"] = ingredients
+            self.recipes[recipe_name]["instructions"] = instructions
         else:
-            flash("Recipe Doesn't exist!")
+            flash("Food recipe already exists")
 
-    def update(self, recipe_name, new_name):
-        if recipe_name in self.recipe:
-            self.recipe[new_name] = self.recipe[recipe_name]
-            del self.recipe[recipe_name]
+    def edit_recipe(self, recipe_name, new_name, new_category, new_ingredients, new_instructions):
+        if recipe_name in self.recipes:
+            recipe_name = new_name
+            self.categories[new_name]['category'] = new_category
+            self.categories[new_name]['ingredients'] = new_ingredients
+            self.categories[new_name]['instructions'] = new_instructions
         else:
-            flash("Recipe Doesn't exist!")
+            flash("Cannot process request! Recipe missing!")
 
-    def delete(self, recipe_name):
-        if recipe_name in self.recipe:
-            del self.recipe[recipe_name]
+    def delete_recipe(self, recipe_name):
+        if recipe_name in self.recipes:
+            del self.recipes[recipe_name]
         else:
-            flash("Invalid Request")
+            flash("Cannot process request! Category missing!")

@@ -19,20 +19,16 @@
             <div>
                 <a href="{{ url_for('logout') }}"><button id="logout">Logout</button></a>
             </div>
-           {#
-            <div>
-                <a href="{{ url_for('login') }}"><button id="dash">Login</button></a>
-            </div> 
-           #}         
+        
         </div>           
       
     </div>
 
     <div class="nav">
         <div class="gap">
-            <div><a href=""><h3>Home</h3></a></div>
-            <div><a href=""><h3>Add Recipe</h3></a></div>
-            <div><a href=""><h3>Recipes</h3></a></div>
+            <div><a href="{{ url_for('home', username = username) }}"><h3>Home</h3></a></div>
+            <div><a href="{{ url_for('create_recipe', username = username) }}"><h3>Create Recipe</h3></a></div>
+            <div><a href="{{ url_for('recipes', username = username) }}"><h3>Recipes</h3></a></div>
         </div>
     </div>
     {% endblock %}
@@ -67,9 +63,9 @@
                 <a href="{{ url_for('edit_category', username = username, category_name = category_name) }}"><button id="edit">Edit</button></a>
             </div>
     
-            <!-- <div>
-                <a href="#"><button id="delete">Delete</button></a>
-            </div> -->
+            <div>
+                <a href="{{ url_for('delete_category', username = username, category_name = category_name) }}"><button id="delete">Delete</button></a>
+            </div>
            </div>
 
         </div>
